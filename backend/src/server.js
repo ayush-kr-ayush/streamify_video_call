@@ -11,8 +11,8 @@ import chatRoutes from "./routes/chat.route.js";
 import { connectDB } from "./lib/db.js";
 
 const app = express();
-const PORT = process.env.PORT || 4000;
-
+const PORT = process.env.PORT || 5001;
+const HOST = "0.0.0.0";
 const __dirname = path.resolve();
 
 app.use(
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(PORT, HOST,() => {
+  console.log(`Server is running on http://${HOST}: ${PORT}`);
   connectDB();
 });
